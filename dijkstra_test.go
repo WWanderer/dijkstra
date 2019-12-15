@@ -19,11 +19,12 @@ func TestDistance(t *testing.T) {
 	for _, c := range cases {
 		got := Distance(c.in[0], c.in[1])
 		if math.Abs(got-c.want) > 0.001 {
-			t.Error(".Distance(", c.in[0], c.in[1], ") ==", got, "want", c.want)
+			t.Error("Distance(", c.in[0], c.in[1], ") ==", got, "want", c.want)
 		}
 	}
 }
 
 func TestDijkstra(t *testing.T) {
-
+	// g := new(Graph)
+	// g.Add(New(*Node{1,2}, *Node{3, 4}))
 }
