@@ -59,31 +59,10 @@ func NewEdge(S, E *Node) *Edge {
 	return e
 }
 
-func (e *Edge) Equal(a *Edge) bool {
-	if e.Start.Equal(a.Start) && e.End.Equal(a.End) {
-		return true
-	}
-	return false
-}
-
 // graph functions
 
 func (g *Graph) Add(e *Edge) {
 	g.Edges = append(g.Edges, e)
-}
-
-func (g *Graph) Remove(e *Edge) {
-	index := -1
-	for i, edge := range g.Edges {
-		if edge.Equal(e) {
-			index = i
-			break
-		}
-	}
-	if index >= 0 {
-		g.Edges = append(g.Edges[:index], g.Edges[index+1:]...)
-	}
-
 }
 
 // InitMap returns a map with all Nodes in the graph and set the distance from
@@ -180,5 +159,11 @@ func main() {
 	fmt.Println("C", "F", Distance(C, F))
 	fmt.Println("D", "E", Distance(D, E))
 	fmt.Println("F", "E", Distance(F, E))
+
+	fmt.Println(Dijkstra(g, A, A))
+	fmt.Println(Dijkstra(g, A, B))
+	fmt.Println(Dijkstra(g, A, C))
+	fmt.Println(Dijkstra(g, A, D))
 	fmt.Println(Dijkstra(g, A, E))
+	fmt.Println(Dijkstra(g, A, F))
 }
